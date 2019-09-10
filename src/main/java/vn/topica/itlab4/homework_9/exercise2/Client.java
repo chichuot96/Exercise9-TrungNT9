@@ -42,9 +42,10 @@ public class Client {
 	          
 	           dos.write(data);
 	           System.out.println("---Response---");
-	           byte[] messageByte = new byte[length];
+	           int length=dis.readInt();
+	           byte[] messageByte = new byte[length-4];
 			   dis.readFully(messageByte, 0, messageByte.length);
-			   Message response=c.convertByteArrayToMessage(messageByte); 
+			   Message response=c.convertByteArrayToMessage(messageByte,length); 
 			   System.out.print(c.convertShortToCmdCode(response.getCmdCode())+" ");
 			   for(Content cont: response.getListTVL()) {
 				   System.out.print(c.convertShortToTag(cont.getTags())+" " + cont.getValue()+"\n");
