@@ -29,10 +29,10 @@ public class ClientHandler extends Thread{
 				Convert c=new Convert();
 				String regex="098[2-9][0-9]{6}";
 				int length=dis.readInt();
-			    byte[] messageByte = new byte[length];
+			    byte[] messageByte = new byte[length-4];
 			    dis.readFully(messageByte, 0, messageByte.length);//read byte array from client
 			    
-			    Message m = c.convertByteArrayToMessage(messageByte);//convert byte array to object Message
+			    Message m = c.convertByteArrayToMessage(messageByte,length);//convert byte array to object Message
 			    boolean match=false;
 			    Short cmdCode=m.getCmdCode();//get cmd Code
 				//Exercise 2.1: check format of phone number
