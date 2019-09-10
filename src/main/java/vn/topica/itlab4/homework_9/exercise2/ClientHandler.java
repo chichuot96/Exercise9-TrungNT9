@@ -94,7 +94,7 @@ public class ClientHandler extends Thread{
 			    dos.flush();
 			    
 			} catch (EOFException e) {
-				
+				stop();
 			} catch (SocketException e) {
                 if (e.toString().contains("Socket closed") || e.toString().contains("Connection reset")
                         || e.toString().contains("Broken pipe")) {
