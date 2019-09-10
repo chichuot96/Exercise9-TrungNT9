@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+//Create client to send and receive message
 public class Client {
 
     public static void main(String[] args)  {
@@ -40,10 +40,8 @@ public class Client {
 
 	           byte[] data=c.convertMessageToByteArray(request);
 	          
-	           dos.writeInt(data.length);
 	           dos.write(data);
 	           System.out.println("---Response---");
-	           int length=dis.readInt();
 	           byte[] messageByte = new byte[length];
 			   dis.readFully(messageByte, 0, messageByte.length);
 			   Message response=c.convertByteArrayToMessage(messageByte); 
