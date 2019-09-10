@@ -73,14 +73,14 @@ public class Convert {
 		
 		return new String(Arrays.copyOfRange(b, off, off+len),StandardCharsets.UTF_8);
 	}
-	public Message convertByteArrayToMessage(byte[] messageByte) {
+	public Message convertByteArrayToMessage(byte[] messageByte,int lengthOfMessage) {
 		Convert c= new Convert();
 		List<Content> list=new ArrayList<Content>();
-		int lengthOfMessage=c.convertByteArrayToInt(messageByte, 0);
-	    short cmdCode=c.convertByteArrayToShort(messageByte, 4);
-	    short version=c.convertByteArrayToShort(messageByte, 6);
-	    int currentByte=8;
-	    while(currentByte<lengthOfMessage) {
+		
+	    short cmdCode=c.convertByteArrayToShort(messageByte, 0);
+	    short version=c.convertByteArrayToShort(messageByte, 2);
+	    int currentByte=4;
+	    while(currentByte<lengthOfMessage-4) {
 	    	short tag=c.convertByteArrayToShort(messageByte, currentByte);
 	    	short len=c.convertByteArrayToShort(messageByte, currentByte+2);
 	    	String value=c.convertByteArrayToString(messageByte, currentByte+4, len);
