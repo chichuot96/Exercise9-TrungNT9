@@ -31,7 +31,7 @@ public class Process {
 		byte[] data;
 		try {
 			data = c.convertMessageToByteArray(response); //convert message to byte array to send
-	        dos.writeInt(data.length);
+	        
 	        dos.write(data);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -53,7 +53,7 @@ public class Process {
 		byte[] data;
 		try {
 			data = c.convertMessageToByteArray(response);//convert message to byte array to send
-	        dos.writeInt(data.length);
+	       
 	        dos.write(data);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -68,7 +68,7 @@ public class Process {
 		byte[] data;
 		try {
 			data = c.convertMessageToByteArray(m);
-	        dos.writeInt(data.length);
+	        
 	        dos.write(data);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
